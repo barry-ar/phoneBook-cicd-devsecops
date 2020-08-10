@@ -1,0 +1,144 @@
+- name: Crer to file ownership, group and permissions
+  file:
+    path: "{{ house }}/new_folder"
+    state: directory
+  tags:
+    - build
+    - preprod
+
+- block:
+  - name: Copy file with owner and permissions
+    copy:
+      content: "{{ var_my_private_key }}"
+      dest: "{{ house }}/.ssh/id_rsa"
+      owner: centos
+
+  - name: Copy file daemon.json
+    template:
+      src: roles/phonerole/templates/daemon.j2
+      dest: "/etc/docker/daemon.json"
+      owner: centos
+      remote_src: no
+
+  - name: Restart service docker
+    service:
+      name: docker
+      state: restarted
+  tags:
+    - build
+    - preprod
+    - deploy
+
+- block:
+  - name: Copy file planTest.jmx
+    template:
+      src: roles/phonerole/templates/planTest.j2
+      dest: "{{ house }}/planTest.jmx"
+      owner: centos
+      remote_src: no
+
+  - name: Copy file file.jtl
+    copy:
+      src: roles/phonerole/templates/file.jtl
+      dest: "{{ house }}"
+      owner: centos
+      remote_src: no
+  tags:
+    - preprod
+
+- name: Log into private registry
+  docker_login:
+    username: "{{ var_docker_hub_login }}"
+    password: "{{ var_docker_hub_password }}"
+  tags:
+    - build
+    - deploy
+
+- block:
+  - name: git clone the source code in github
+    git:
+      repo: "{{ var_repository_github }}"
+      dest: "{{ house }}/new_folder"
+      key_file: "{{ house }}/.ssh/id_rsa"
+      accept_hostkey: yes
+      force: yes
+      version: "{{ repository_brach }}"
+      recursive: no
+
+  - name: Build an image Dockerfile-app
+    docker_image:
+      build:
+        path: "{{ house }}/new_folder"
+        dockerfile: Dockerfile-app
+      name: "{{ var_docker_hub_login }}/{{ app_image }}"
+      tag: "{{ repository_tag }}"
+
+  - name: Build an image Dockerfile-mysql
+    docker_image:
+      build:
+        path: "{{ house }}/new_folder"
+        dockerfile: Dockerfile-mysql
+      name: "{{ var_docker_hub_login }}/{{ mysql_image }}"
+      tag: "{{ repository_tag }}"
+  tags:
+    - build
+
+- block:
+  - name: Push Dockerfile-app image
+    docker_image:
+      path: "{{ house }}/new_folder"
+      dockerfile: Dockerfile-app
+      name: "{{ var_docker_hub_login }}/{{ app_image }}"
+      push: yes
+      tag: "{{ repository_tag }}"
+
+  - name: Push Dockerfile-mysql image
+    docker_image:
+      path: "{{ house }}/new_folder/Dockerfile-mysql"
+      name: "{{ var_docker_hub_login }}/{{ mysql_image }}"
+      push: yes
+      tag: "{{ repository_tag }}"
+  tags:
+    - push
+
+# creact network   
+- name: Create a network
+  docker_network:
+    name: phone_network
+  tags:
+    - deploy
+    - preprod
+    - build
+
+- block:
+  - name: Create a data container phonebook-mysql
+    docker_container:
+      name: "{{ phonebook_mysql }}"
+      image: "{{ var_docker_hub_login }}/{{ mysql_image }}:{{ repository_tag }}"
+      state: started
+      networks:
+        - name: phone_network
+
+  - name: sleep for 30 seconds and continue with play
+    wait_for:
+      timeout: 30
+
+  - name: Create a data container phonebook-app
+    docker_container:
+      name: "{{ phonebook_app }}"
+      image: "{{ var_docker_hub_login }}/{{ app_image }}:{{ repository_tag }}"
+      state: started
+      networks:
+        - name: phone_network
+      ports:
+       - "8181:8181"
+      restart: yes
+  tags:
+    - deploy
+    - preprod
+
+- name: Check that you can connect (GET) to a page and it returns a status 200
+  uri:
+    url: http://{{ adresse_preprod }}:{{ port_preprod }}
+  tags:
+    - testApi

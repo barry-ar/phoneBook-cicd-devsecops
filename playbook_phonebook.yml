@@ -1,0 +1,30 @@
+- name: Deploy phonebook-app
+  hosts: build prod preprod
+  gather_facts: true
+  become: true
+  vars_files:
+    - "secret/login-and-password.yml"
+    - "group-vars/main.yml"
+
+  vars:
+    pip_install_packages:
+      - name: docker
+
+    pip_package: python-pip
+    pip_executable: pip
+
+  pre_tasks:
+    - block:
+      - name: Install EPEL repo
+        package: name=epel-release state=present
+        when: ansible_distribution == "CentOS"
+
+      - name: install python-pip
+        package: name=python-pip state=present update_cache=yes
+      tags:
+        - always
+  roles:
+    - { role: geerlingguy.pip, tags: [ always ] }
+    - { role: geerlingguy.docker, tags: [ always ] }
+    - { role: geerlingguy.git, tags: [ always ] }
+    - { role: phonerole }
