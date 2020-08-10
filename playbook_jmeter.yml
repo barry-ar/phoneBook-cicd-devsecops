@@ -1,0 +1,34 @@
+- name: Test of performent Phonebook-app
+  hosts: preprod
+  gather_facts: true
+  become: true
+
+  pre_tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+        exclude: kernel*,foo*
+
+  roles:
+    - role: geerlingguy.java
+      when: "ansible_os_family == 'RedHat'"
+      java_packages:
+        - java-1.8.0-openjdk
+
+  tasks:
+    - name: Download apache-jmeter-5.3
+      get_url:
+        url: http://www.gtlib.gatech.edu/pub/apache//jmeter/binaries/apache-jmeter-5.3.tgz
+        dest: /home/centos
+
+    - name: Unarchive a file that is already on the remote machine
+      unarchive:
+        src: /home/centos/apache-jmeter-5.3.tgz
+        dest: /home/centos
+        remote_src: yes
+
+    - name: Run a command shell
+      shell: apache-jmeter-5.3/bin/jmeter.sh -n -t /home/centos/planTest.jmx -l /home/centos/file.jtl
+      args:
+        warn: no

@@ -1,0 +1,11 @@
+# installation python via geerlingguy role
+- src: geerlingguy.pip
+
+# installation docker via geerlingguy role
+- src: geerlingguy.docker
+
+# installation git via geerlingguy role
+- src: geerlingguy.git
+
+# installation java via geerlingguy role
+- src: geerlingguy.java
