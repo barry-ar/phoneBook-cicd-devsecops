@@ -10,11 +10,11 @@ var_repository_github: "https://github.com/AbdoulRahimBarry/crud-application-usi
 house: "/home/centos"
 
 # host preprod
-adresse_preprod: "172.18.0.1"
+adresse_preprod: "100.26.9.118"
 port_preprod: "8181"
 
 # test jmeter
-ip_jmeter: "34.203.38.4"
+ip_jmeter: "100.26.9.118"
 
 repository_brach: "master"
 repository_tag: "1.0"
