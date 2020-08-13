@@ -8,16 +8,11 @@
  **Container**: Docker  
  **Automated deployments**: Ansible  
  **Continuous integration** : Jenkins  
- 
- **binary repository manager**: Jfrog artifactory
- 
- **Source Code Managment** : Github
- 
- **tests of security**: Jmeter
- 
- **Security**: Clair, Gauntlt
- 
- **Notification**: Slack
+ **binary repository manager**: Jfrog artifactory  
+ **Source Code Managment** : Github  
+ **tests of security**: Jmeter  
+ **Security**: Clair, Gauntlt  
+ **Notification**: Slack  
 
 ## Context
 
