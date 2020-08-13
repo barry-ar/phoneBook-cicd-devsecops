@@ -4,11 +4,10 @@
 
 
 ## Tools
- **Cloud** : Amazone Web Service (EC2, CloudFormation)
- 
- **Container**: Docker 
- **Automated deployments**: Ansible 
- **Continuous integration** : Jenkins
+ **Cloud** : Amazone Web Service (EC2, CloudFormation)  
+ **Container**: Docker  
+ **Automated deployments**: Ansible  
+ **Continuous integration** : Jenkins  
  
  **binary repository manager**: Jfrog artifactory
  
