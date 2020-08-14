@@ -38,5 +38,4 @@
       tags:
         - always
 
-  roles:
     - { role: phonerole }
