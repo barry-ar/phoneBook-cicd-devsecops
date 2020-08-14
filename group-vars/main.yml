@@ -4,3 +4,7 @@ house: "/home/centos"
 
 port_preprod: "8181"
 ip_jmeter: "54.166.217.173"
+
+http_jmeter: "http://www.gtlib.gatech.edu/pub/apache//jmeter/binaries/apache-jmeter-5.3.tgz"
+paquet_jmeter: "apache-jmeter-5.3.tgz"
+run_jmeter: "apache-jmeter-5.3"

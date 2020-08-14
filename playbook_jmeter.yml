@@ -36,16 +36,16 @@
   tasks:
     - name: Download apache-jmeter-5.3
       get_url:
-        url: http://www.gtlib.gatech.edu/pub/apache//jmeter/binaries/apache-jmeter-5.3.tgz
-        dest: /home/centos
+        url: {{ http_jmeter }}
+        dest: {{ house }}
 
     - name: Unarchive a file that is already on the remote machine
       unarchive:
-        src: /home/centos/apache-jmeter-5.3.tgz
-        dest: /home/centos
+        src: {{ house }}/{{ paquet_jmeter }}
+        dest: {{ house }}
         remote_src: yes
 
     - name: Run a command shell
-      shell: apache-jmeter-5.3/bin/jmeter.sh -n -t /home/centos/planTest.jmx -l /home/centos/file.jtl
+      shell: {{ run_jmeter }}/bin/jmeter.sh -n -t {{ house }}/planTest.jmx -l {{ house }}/file.jtl
       args:
         warn: no
