@@ -36,16 +36,16 @@
   tasks:
     - name: Download apache-jmeter-5.3
       get_url:
-        url: {{ http_jmeter }}
-        dest: {{ house }}
+        url: "{{ http_jmeter }}"
+        dest: "{{ house }}"
 
     - name: Unarchive a file that is already on the remote machine
       unarchive:
-        src: {{ house }}/{{ paquet_jmeter }}
-        dest: {{ house }}
+        src: "{{ house }}/{{ paquet_jmeter }}"
+        dest: "{{ house }}"
         remote_src: yes
 
     - name: Run a command shell
-      shell: {{ run_jmeter }}/bin/jmeter.sh -n -t {{ house }}/planTest.jmx -l {{ house }}/file.jtl
+      shell: "{{ run_jmeter }}/bin/jmeter.sh -n -t {{ house }}/planTest.jmx -l {{ house }}/file.jtl"
       args:
         warn: no
