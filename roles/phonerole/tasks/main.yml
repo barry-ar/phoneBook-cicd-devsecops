@@ -13,6 +13,13 @@
       dest: "{{ house }}/.ssh/id_rsa"
       owner: centos
 
+  - name: Copy file daemon.json
+    template:
+      src: roles/phonerole/templates/daemon.j2
+      dest: "/etc/docker/daemon.json"
+      owner: centos
+      remote_src: no
+
   - name: Restart service docker
     service:
       name: docker
