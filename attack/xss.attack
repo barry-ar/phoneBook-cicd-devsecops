@@ -5,7 +5,7 @@ Scenario: Using arachni, look for cross site scripting and verify no issues are 
   Given "arachni" is installed
   And the following profile:
      | name                | value                         |
-     | url                 | http://{{ adresse_preprod }}:{{ port_preprod }}       |
+     | url                 | http://54.166.217.173:8181       |
   When I launch an "arachni" attack with:
   """
   arachni --checks=xss --scope-directory-depth-limit=1 <url>
