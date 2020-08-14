@@ -10,6 +10,20 @@
         state: latest
         exclude: kernel*,foo*
 
+    - name: Copy file planTest.jmx
+      template:
+        src: roles/phonerole/templates/planTest.j2
+        dest: "{{ house }}/planTest.jmx"
+        owner: centos
+        remote_src: no
+
+    - name: Copy file file.jtl
+      copy:
+        src: roles/phonerole/templates/file.jtl
+        dest: "{{ house }}"
+        owner: centos
+        remote_src: no
+
   roles:
     - role: geerlingguy.java
       when: "ansible_os_family == 'RedHat'"
