@@ -23,6 +23,7 @@
         package: name=python-pip state=present update_cache=yes
       tags:
         - always
+
   roles:
     - { role: geerlingguy.pip, tags: [ always ] }
     - { role: geerlingguy.docker, tags: [ always ] }

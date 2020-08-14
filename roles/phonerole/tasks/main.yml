@@ -29,23 +29,6 @@
     - preprod
     - deploy
 
-- block:
-  - name: Copy file planTest.jmx
-    template:
-      src: roles/phonerole/templates/planTest.j2
-      dest: "{{ house }}/planTest.jmx"
-      owner: centos
-      remote_src: no
-
-  - name: Copy file file.jtl
-    copy:
-      src: roles/phonerole/templates/file.jtl
-      dest: "{{ house }}"
-      owner: centos
-      remote_src: no
-  tags:
-    - preprod
-
 - name: Log into private registry
   docker_login:
     username: "{{ var_docker_hub_login }}"
