@@ -35,8 +35,8 @@
         dest: "/etc/docker/daemon.json"
         owner: centos
         remote_src: no
-    tags:
-      - always
+      tags:
+        - always
 
   roles:
     - { role: phonerole }
