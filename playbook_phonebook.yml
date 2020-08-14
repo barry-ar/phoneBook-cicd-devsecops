@@ -29,14 +29,14 @@
     - { role: geerlingguy.docker, tags: [ always ] }
     - { role: geerlingguy.git, tags: [ always ] }
 
-  - name: Copy file daemon.json
-    template:
-      src: roles/phonerole/templates/daemon.j2
-      dest: "/etc/docker/daemon.json"
-      owner: centos
-      remote_src: no
-  tags:
-    - always
+    - name: Copy file daemon.json
+      template:
+        src: roles/phonerole/templates/daemon.j2
+        dest: "/etc/docker/daemon.json"
+        owner: centos
+        remote_src: no
+    tags:
+      - always
 
   roles:
     - { role: phonerole }
