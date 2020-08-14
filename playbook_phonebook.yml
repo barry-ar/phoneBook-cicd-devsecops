@@ -28,13 +28,6 @@
           dest: "/etc/docker/daemon.json"
           owner: centos
           remote_src: no
-
-      - name: Copy file daemon.json
-        template:
-          src: roles/phonerole/templates/daemon.j2
-          dest: "/etc/docker/daemon.json"
-          owner: centos
-          remote_src: no
       tags:
         - always
 
