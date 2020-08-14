@@ -1,35 +1,10 @@
 # variable vaulted
 
-var_docker_hub_login: "{{ vault_docker_hub_login }}"
-var_docker_hub_password: "{{ vault_docker_hub_password }}"
-var_my_private_key: "{{ vault_my_private_key }}"
-
-var_repository_github: "https://github.com/AbdoulRahimBarry/crud-application-using-flask-and-mysql.git"
-
-# other variable
 house: "/home/centos"
 
-# host preprod for the curl
-adresse_preprod: "172.18.0.1"
 port_preprod: "8181"
-
-# test jmeter
 ip_jmeter: "54.166.217.173"
 
-repository_brach: "master"
-repository_tag: "1.0"
-
-# variable images
-mysql_image: "mysql-image"
-app_image: "app-image"
-
-# variable container
-phonebook_mysql: "phonebook-mysql"
-phonebook_app: "phonebook-app"
-
-# creat folder
-new_folder: "new_folder"
-
-# donnees jfrog artifactory
-ip_server_jfrog: "34.203.38.40"
-port_jfrog: "8082"
+http_jmeter: "http://www.gtlib.gatech.edu/pub/apache//jmeter/binaries/apache-jmeter-5.3.tgz"
+paquet_jmeter: "apache-jmeter-5.3.tgz"
+run_jmeter: "apache-jmeter-5.3"
