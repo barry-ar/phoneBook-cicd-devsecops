@@ -3,6 +3,9 @@
   gather_facts: true
   become: true
 
+  vars_files:
+    - "group-vars/main.yml"
+
   pre_tasks:
     - name: upgrade all packages
       yum:
