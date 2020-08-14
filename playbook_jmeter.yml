@@ -15,14 +15,14 @@
 
     - name: Copy file planTest.jmx
       template:
-        src: roles/phonerole/templates/planTest.j2
+        src: jmeter/planTest.j2
         dest: "{{ house }}/planTest.jmx"
         owner: centos
         remote_src: no
 
     - name: Copy file file.jtl
       copy:
-        src: roles/phonerole/templates/file.jtl
+        src: jmeter/file.jtl
         dest: "{{ house }}"
         owner: centos
         remote_src: no
