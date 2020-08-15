@@ -34,7 +34,7 @@ The description
 I tried to reproduce the different stages of the implementation
   of a CI / CD chain.
 Deployment of four servers on AWS (build, preprod, prod).
-1 -the **main server** which contains the main devops tools (Jenkins ([jenkins] (https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible), Ansible, Docker, Jmeter)
+1 -the **main server** which contains the main devops tools (Jenkins ([ripository link] (https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible), Ansible, Docker, Jmeter)
 2 -the **build** server only allows to build docker images
 3 - The **pre-production** server allows the application to be deployed in order to allow the developer to test the application
 4 - the **production** server to deploy the application, accessible by users
@@ -43,7 +43,7 @@ Deployment of four servers on AWS (build, preprod, prod).
 * **docker** to containerize the application
 * **Ansible** to configure the infrastructure and automatically deploy applications.
 * **Jenkins** to orchestrate the various stages of deployment
-* **Jfrog artifactory**: a binary repository manager *(Private Registry)*, to store artifacts, follow this link for the installation of Jfrog artifactory ([jfrog artifactory] (https://github.com/AbdoulRahimBarry/jfrog -artifactory)
+* **Jfrog artifactory**: a binary repository manager *(Private Registry)*, to store artifacts, follow this link for the installation of Jfrog artifactory ([ripository link] (https://github.com/AbdoulRahimBarry/jfrog -artifactory)
 
 ### Work perform
 
@@ -71,3 +71,6 @@ The application is automatically deployed on the **production** server, the appl
 Jenkins, Pipeline, Shared-library,  Ansible, Playbooks, Rôles, Galaxy, Docker, 
 Jfrog artifactory , slack, Clair, Gauntlt, Jmeter,  Push, Merge Request
 ```
+
+## References
+(https://github.com/AbdoulRahimBarry/jfrog-artifactory)
