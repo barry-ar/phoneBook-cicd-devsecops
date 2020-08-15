@@ -43,7 +43,7 @@ Deployment of four servers on AWS (build, preprod, prod).
 * **docker** to containerize the application
 * **Ansible** to configure the infrastructure and automatically deploy applications.
 * **Jenkins** to orchestrate the various stages of deployment
-* **Jfrog artifactory**: a binary repository manager *(Private Registry)*, to store artifacts, follow this link for the installation of Jfrog artifactory ([ripository link](https://github.com/AbdoulRahimBarry/jfrog -artifactory)
+* **Jfrog artifactory**: a binary repository manager *(Private Registry)*, to store artifacts, follow this link for the installation of Jfrog artifactory [ripository link](https://github.com/AbdoulRahimBarry/jfrog-artifactory).
 
 ### Work perform
 
