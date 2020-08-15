@@ -73,4 +73,8 @@ Jfrog artifactory , slack, Clair, Gauntlt, Jmeter,  Push, Merge Request
 ```
 
 ## References
-(https://github.com/AbdoulRahimBarry/jfrog-artifactory)
+
+* https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible
+* https://github.com/AbdoulRahimBarry/jfrog-artifactory
+* https://github.com/AbdoulRahimBarry/phoneBook-ansible
+* https://github.com/AbdoulRahimBarry/phoneBook-cicd-devsecops
