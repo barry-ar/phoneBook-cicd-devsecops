@@ -34,7 +34,7 @@ The description
 I tried to reproduce the different stages of the implementation
   of a CI / CD chain.
 Deployment of four servers on AWS (build, preprod, prod).
-1 -the **main server** which contains the main devops tools (Jenkins ([ripository link] (https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible), Ansible, Docker, Jmeter)
+1 -the **main server** which contains the main devops tools (Jenkins ([ripository link](https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible), Ansible, Docker, Jmeter)
 2 -the **build** server only allows to build docker images
 3 - The **pre-production** server allows the application to be deployed in order to allow the developer to test the application
 4 - the **production** server to deploy the application, accessible by users
@@ -73,7 +73,7 @@ Jfrog artifactory , slack, Clair, Gauntlt, Jmeter,  Push, Merge Request
 ```
 
 ## References
-
+* https://github.com/AbdoulRahimBarry/crud-application-using-flask-and-mysql-ci
 * https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible
 * https://github.com/AbdoulRahimBarry/jfrog-artifactory
 * https://github.com/AbdoulRahimBarry/phoneBook-ansible
