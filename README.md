@@ -16,15 +16,15 @@
 
 ## Tools
 
-**Cloud** : Amazone Web Service (EC2, CloudFormation)
-**Container**: Docker
-**Automated deployments**: Ansible
-**Continuous integration** : Jenkins
-**binary repository manager**: Jfrog artifactory
-**Source Code Managment** : Github
-**tests of security**: Jmeter
-**Security**: Clair, Gauntlt
-**Notification**: Slack
+**Cloud** : Amazone Web Service (EC2, CloudFormation)  
+**Container**: Docker  
+**Automated deployments**: Ansible  
+**Continuous integration** : Jenkins  
+**binary repository manager**: Jfrog artifactory  
+**Source Code Managment** : Github  
+**tests of security**: Jmeter  
+**Security**: Clair, Gauntlt  
+**Notification**: Slack  
 
 ## The context
 
@@ -43,7 +43,7 @@ Deployment of four servers on AWS (build, preprod, prod).
 * **docker** to containerize the application
 * **Ansible** to configure the infrastructure and automatically deploy applications.
 * **Jenkins** to orchestrate the various stages of deployment
-* **Jfrog artifactory**: a binary repository manager *(Private Registry)*, to store artifacts, follow this link for the installation of Jfrog artifactory ([ripository link] (https://github.com/AbdoulRahimBarry/jfrog -artifactory)
+* **Jfrog artifactory**: a binary repository manager *(Private Registry)*, to store artifacts, follow this link for the installation of Jfrog artifactory ([ripository link](https://github.com/AbdoulRahimBarry/jfrog -artifactory)
 
 ### Work perform
 
@@ -61,7 +61,7 @@ The principle of operation is as follows:
   Ansible syntax checks, configuration of the pre-production and production environment, then build images on the **build** server.
 * **Security**: vulnerability scan of images, then **push** on the private registry **jfrog artifactory**.
   Deployment of the application on the **pre-production** server in order to test the correct functioning of the application.
-* **Security test**: Generation of different types of attacks (Clear, Gaunt and jmeter).
+* **Security test**: Generation of different types of attacks (Clear, Gauntlt and jmeter).
 
 After validation of the previous steps, the **DSI** manager makes a merge (**Merge pull request**) in order to pass the modifications on the **master** branch
 The application is automatically deployed on the **production** server, the application is available and a **slack** notification is sent.
