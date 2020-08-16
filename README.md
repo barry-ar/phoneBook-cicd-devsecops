@@ -1,7 +1,6 @@
 # Complete integration chain devsecops
 
-![infrastructure](https://user-images.githubusercontent.com/50138085/90188810-62d5f280-ddbc-11ea-97ca-88006cfcd2c5.PNG)
-
+![infrastructure](https://user-images.githubusercontent.com/50138085/90342978-dbcb8900-e00c-11ea-9e78-e8313ecbadbb.PNG)
 
 ## Tools
  **Cloud** : Amazone Web Service (EC2, CloudFormation)  
