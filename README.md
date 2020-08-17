@@ -74,6 +74,9 @@ Jfrog artifactory , slack, Clair, Gauntlt, Jmeter,  Push, Merge Request
 ## References
 * https://github.com/AbdoulRahimBarry/crud-application-using-flask-and-mysql-ci
 * https://github.com/AbdoulRahimBarry/installation-Jenkins-via-ansible
+* https://jfrog.com/download-jfrog-platform/
 * https://github.com/AbdoulRahimBarry/jfrog-artifactory
 * https://github.com/AbdoulRahimBarry/phoneBook-ansible
 * https://github.com/AbdoulRahimBarry/phoneBook-cicd-devsecops
+* https://github.com/AbdoulRahimBarry/shared-library
+
