@@ -77,6 +77,7 @@ Jfrog artifactory , slack, Clair, Gauntlt, Jmeter,  Push, Merge Request
 * https://jfrog.com/download-jfrog-platform/
 * https://github.com/AbdoulRahimBarry/jfrog-artifactory
 * https://github.com/AbdoulRahimBarry/phoneBook-ansible
-* https://github.com/AbdoulRahimBarry/phoneBook-cicd-devsecops
 * https://github.com/AbdoulRahimBarry/shared-library
+* https://github.com/AbdoulRahimBarry/phoneBook-cicd-devsecops
+
 
